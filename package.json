@@ -3,7 +3,7 @@
     "test": "jest"
   },
   "keywords": [],
-  "author": "Your Name",
+  "author": "Group 5",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^29.5.12",
