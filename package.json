@@ -1,4 +1,14 @@
 {
+  "name": "Automated-Software-Testing-and-Deployment",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "NJMarquez",
+  "license": "ISC",
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "jest": "^29.7.0"
