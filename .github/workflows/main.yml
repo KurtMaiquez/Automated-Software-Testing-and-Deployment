@@ -1,4 +1,4 @@
-name: CI
+name: CI/CD
 
 on:
   push:
@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -20,5 +21,23 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Build
+        run: npm run build
+
       - name: Run tests
         run: npm test
+
+      - name: Generate test report
+        run: npm run test:report
+
+      - name: Deploy to staging
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "Deploying to staging environment..."
+          # Add your deployment commands here
+
+      - name: Deploy to production
+        if: github.event_name == 'push' && github.ref == 'refs/tags/*'
+        run: |
+          echo "Deploying to production environment..."
+          # Add your deployment commands here
